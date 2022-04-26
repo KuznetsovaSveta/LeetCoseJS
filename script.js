@@ -53,15 +53,61 @@ let addTwoNumbers = function(l1, l2) {
 
 //3
 // Given an integer x, return true if x is palindrome integer.
-let isPalindrome = function(x) {
-    let arrX = String(x).split(['']);
-    let revX = String(x).split(['']);
-    revX = revX.reverse();
-    if(JSON.stringify(arrX) === JSON.stringify(revX)){
-        return true;
-    } else {
-        return false;
+// let isPalindrome = function(x) {
+//     let arrX = String(x).split(['']);
+//     let revX = String(x).split(['']);
+//     revX = revX.reverse();
+//     if(JSON.stringify(arrX) === JSON.stringify(revX)){
+//         return true;
+//     } else {
+//         return false;
+//     }
+// };
+// isPalindrome(121);
+
+
+
+//4
+//Given a roman numeral, convert it to an integer.
+let romanToInt = function(s) {
+    let resInt = 0;
+    for (let i = 0; i < s.length; i++){
+        if(s[i] === 'I') {
+            if (s[i + 1] === 'V') {
+                resInt += 4;
+                i++;
+            } else if(s[i + 1] === 'X'){
+                resInt += 9;
+                i++;
+            } else  resInt += 1;
+        } else if(s[i] === 'V'){
+            resInt += 5;
+        } else if(s[i] === 'X'){
+            if(s[i + 1] === 'L'){
+                resInt += 40;
+                i++;
+            } else if(s[i + 1] === 'C'){
+                resInt += 90;
+                i++;
+            } else resInt += 10;
+        } else if(s[i] === 'L'){
+            resInt += 50;
+        } else if(s[i] === 'C'){
+            if (s[i + 1] === 'D') {
+                resInt += 400;
+                i++;
+            } else if(s[i + 1] === 'M'){
+                resInt += 900;
+                i++;
+            } else resInt += 100;
+        } else if(s[i] === 'D') {
+            resInt += 500;
+        } else if(s[i] === 'M'){
+            resInt += 1000;
+        } else resInt = 'Error';
     }
+    return resInt;
 };
-isPalindrome(121);
+
+romanToInt("MCMXCIV");
 
