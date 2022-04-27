@@ -125,3 +125,17 @@ let mySqrt = function(x) {
 };
 
 mySqrt(9);
+
+
+
+//6
+//Given a positive integer num, write a function which returns True if num is a perfect square else False.
+// Follow up: Do not use any built-in library function such as sqrt.
+let isPerfectSquare = function(num) {
+    for (let i = 0; i <= num; i++) {
+        if (i * i === num) return true;
+        if ((i * i < num) && ((i + 1) * (i + 1) > num)) return false;
+    }
+};
+
+isPerfectSquare(16);
